@@ -1,0 +1,10 @@
+const express=require("express")
+const ConnectDb = require("./config/connectDb")
+const route  = require("./routes/contact")
+const app=express()
+require("dotenv").config()
+ConnectDb() 
+app.use(express.json())
+app.use('/api/contactLists',route)
+const port=5000
+app.listen(port,()=>console.log(`server is running ${port}`))
